@@ -1,0 +1,30 @@
+{
+    "name":"codeswarm",
+    "version":"0.0.1",
+    "private":true,
+    "author":"Levi DeHaan <admin@levidehaan.com>",
+    "description":"codeswarm",
+    "contributors":[
+    ],
+    "dependencies":{
+        "express": "*",
+        "connect" : "*",
+        "minify":"*",
+        "request":"*",
+        "python": "*",
+        "async": "*",
+        "lodash": "*",
+        "limiter":"*",
+        "memwatch":"*",
+        "memoizee" : "*",
+        "lactate" : "*",
+        "sockjs" : "*",
+        "jade" : "*",
+        "consolidate" : "*",
+        "compression" : "*",
+        "express-session" : "*",
+        "body-parser" : "*",
+        "cookie-parser" : "*"
+
+    }
+}
