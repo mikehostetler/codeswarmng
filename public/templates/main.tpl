@@ -1,9 +1,9 @@
-<h1 class="page-title" data-bind="html:displayName"> </h1>
+<h1 class="page-title"> </h1>
 
 <div class="content-wrap">
     <h3>Sample Home Page</h3>
 
-    <span data-bind="visible: isLoggedIn()">
+    <span ng-hide="{{ loggedin }}">
         <h4>Projects</h4>
 
         <table class="datatable projects">
@@ -40,11 +40,11 @@
 
             <br>
 
-            <form method="post" action="{{url_prefix}}/tokens/github">
+            <ng-form method="post" action="{{ url_prefix + '/tokens/github'}}">
 
                 <button class="btn">Login to Github</button>
 
-            </form>
+            </ng-form>
 
             <h3 class="sidebar-list-title">Filter</h3>
         </div>

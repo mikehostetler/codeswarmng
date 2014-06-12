@@ -8,23 +8,9 @@
     ],
     "dependencies":{
         "express": "*",
-        "connect" : "*",
-        "minify":"*",
-        "request":"*",
-        "python": "*",
-        "async": "*",
-        "lodash": "*",
-        "limiter":"*",
-        "memwatch":"*",
-        "memoizee" : "*",
-        "lactate" : "*",
-        "sockjs" : "*",
-        "jade" : "*",
-        "consolidate" : "*",
-        "compression" : "*",
-        "express-session" : "*",
-        "body-parser" : "*",
-        "cookie-parser" : "*"
+        "body-parser": "*",
+        "errorhandler": "*",
+        "method-override": "*"
 
     }
 }

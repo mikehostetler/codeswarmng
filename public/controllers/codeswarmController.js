@@ -1,3 +1,7 @@
-function codeswarmController($scope, $rootScope){
-    $rootScope.url_prefix = "http://alien.levidehaan.com:1337"
+function codeswarmController($scope, $rootScope,$sce, localStorageService){
+    $scope.trusted = function(url) {
+        return $sce.trustAsResourceUrl(url);
+    }
+
+    $scope.url_prefix = localStorageService.get("urlprefix");
 }

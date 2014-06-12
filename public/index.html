@@ -61,7 +61,7 @@
         <!-- ko if: isLoggedIn() -->
         <div class="profile-nav">
             <a class="profile-nav--trigger">
-                <img data-bind="attr: { src: gravatarUrl }" class="profile-nav--thumb">
+                <img ng-src="blank" class="profile-nav--thumb">
                 <span data-bind="text: username">Welcome!</span>
                 <i class="fa fa-caret-down"></i>
             </a>
@@ -77,10 +77,10 @@
         <!-- ko if: !isLoggedIn() -->
         <ul class="global-nav">
             <li>
-                <a ng-href="{{$root.url_prefix}}/#user/register" > Create </a>
+                <a ng-href="/#/user/register" > Create </a>
             </li>
             <li>
-                <a ng-href="{{$root.url_prefix}}/#user/login" > Login </a>
+                <a ng-href="/#/user/login" > Login </a>
             </li>
         </ul>
         <!-- /ko -->
@@ -99,23 +99,29 @@
 
 <!--SCRIPTS-->
 <script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/restangular/dist/restangular.js"></script>
+<!--this module needed to be modified but it's still here because i only added a few things-->
+<script src="custom/angular-local-storage/angular-local-storage.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-cookies/angular-cookies.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-base64/angular-base64.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="bower_components/github/github.js"></script>
 <script src="bower_components/gravatarjs/gravatar.js"></script>
-<script type="application/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-<script type="application/javascript" src="bower_components/lodash/dist/lodash.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/lodash/dist/lodash.js"></script>
 <!--<script src="/js/sails.io.js"></script>-->
 <!--SCRIPTS END-->
 
 <!--Main Angular File-->
-<script type="application/javascript" src="codeswarm.js"></script>
+<script src="codeswarm.js"></script>
 <!--Controllers-->
-<script type="application/javascript" src="controllers/codeswarmController.js"></script>
-<script type="application/javascript" src="controllers/home/mainController.js"></script>
+<script src="controllers/codeswarmController.js"></script>
+<script src="controllers/home/mainController.js"></script>
+<script src="controllers/user/loginController.js"></script>
+<script src="controllers/user/registerController.js"></script>
 
 <!--End Controllers-->
 
@@ -124,7 +130,7 @@
 <!--End Directives-->
 
 <!--Services-->
-<!--<script type="application/javascript" src="services/"></script>-->
+<script type="application/javascript" src="services/codeswarmService.js"></script>
 <!--End Services-->
 
 
