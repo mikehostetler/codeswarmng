@@ -5,27 +5,36 @@ css.service('codeswarmService', ['$resource', 'localStorageService', function ($
     var url_prefix = localStorageService.get('urlprefix');
 
     //setting up the $resource object with endpoint and methods
-    var auth = $resource(url_prefix + "/auth/local",
-        {}, {
-            login: {
-                method: 'POST',
-                params: {}
-            }
-        });
 
-    var user = $resource(url_prefix + "/:action", {action:"@action"});
+    var user = $resource(url_prefix + "/:action", {action: "@action"});
 
     this.login = function (user, pass) {
-        auth.login({identifier: user, password: pass}).$promise.then(function (logindata) {
-            localStorageService.set("userdata", logindata);
-        });
+        $resource(url_prefix + "/auth/local",
+            {}, {
+                login: {
+                    method: 'POST',
+                    params: {}
+                }
+            }).login({identifier: user, password: pass}).$promise.then(function (logindata) {
+                localStorageService.set("userdata", logindata);
+            });
     };
 
     this.logout = function () {
-        var loggedout = user.get({action: "/logout"}, function(data){
+        var loggedout = user.get({action: "/logout"}, function (data) {
             localStorageService.remove("userdata");
         });
 
+    }
+
+    this.createUser = function () {
+        var newuser = $resource(url_prefix + "/auth/local",
+            {}, {
+                login: {
+                    method: 'POST',
+                    params: {}
+                }
+            });
     }
 
     return this;
