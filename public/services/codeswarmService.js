@@ -1,17 +1,34 @@
-var css = angular.module('codeswarmService', ['restangular', 'LocalStorageModule']);
+var css = angular.module('codeswarmService', ['ngResource', 'LocalStorageModule']);
 
-css.service('codeswarmService', ['Restangular', 'localStorageService', function (Restangular,localStorageService) {
-    //set the prefix for the urls to refrence the craptacular sails server
-    console.log("SERVICE RUNNING");
-    console.log("localstorage: ", localStorageService.get('urlprefix'));
-    var url_prefix = localStorageService.get('urlprefix')
+css.service('codeswarmService', ['$resource', 'localStorageService', function ($resource, localStorageService) {
+    //set the prefix for the urls
+    var url_prefix = localStorageService.get('urlprefix');
 
+    //setting up the $resource object with endpoint and methods
+    var auth = $resource(url_prefix + "/auth/local",
+        {}, {
+            login: {
+                method: 'POST',
+                params: {}
+            }
+        });
 
-    this.login = function(user,pass){
-        var userlogin = Restangular.allUrl(url_prefix+'/auth/local');
+    var user = $resource(url_prefix + "/:action", {action:"@action"});
 
-        userlogin.post({identifier: user, password: pass});
+    this.login = function (user, pass) {
+        auth.login({identifier: user, password: pass}).$promise.then(function (logindata) {
+            localStorageService.set("userdata", logindata);
+        });
+    };
+
+    this.logout = function () {
+        var loggedout = user.get({action: "/logout"}, function(data){
+            localStorageService.remove("userdata");
+        });
 
     }
+
+    return this;
+
 
 }]);

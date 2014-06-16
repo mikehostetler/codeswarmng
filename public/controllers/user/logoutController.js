@@ -1,4 +1,4 @@
-function loginController($scope, $rootScope, codeswarmService){
+function logoutController($scope, $rootScope, codeswarmService){
     $scope.credentials = { "username": "", "identifier":"" };
     $scope.login = function(credentials){
         //simple yet effective
