@@ -2665,7 +2665,7 @@ header .fa-check-circle:hover {
 .global-logo {
   float: left;
   margin: .5em 0 0;
-  background: url(../../images/logo-light.png) no-repeat;
+  background: url(../images/logo-light.png) no-repeat;
   background-size: 155px;
   width: 155px;
   height: 40px;
@@ -4339,6 +4339,22 @@ a.global-search--trigger:hover {
   }
 }
 
+.status-col{
+    padding-top: 10px;
+    background-color: #aaaaaa !important;
+    height: 35px;
+    border-bottom: 1px solid #3a3a3a;
+}
+.run-col{
+    padding-top: 10px;
+    height: 35px;
+    border-bottom: 1px solid #3a3a3a;
+}
+.logs-col{
+    padding-top: 10px;
+    height: 35px;
+    border-bottom: 1px solid #3a3a3a;
+}
 @-webkit-viewport {
   width: device-width;
 }

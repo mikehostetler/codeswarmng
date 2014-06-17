@@ -30,12 +30,13 @@
         "angular-route": "*",
         "angular-animate": "*",
         "angular-sanitize": "*",
-        "angular-local-storage": "*",
         "restangular":"*",
         "jquery": "*",
         "github": "*",
         "angular-base64": "*",
         "lodash": "*",
-        "gravatarjs": "*"
+        "gravatarjs": "*",
+        "spin.js": "*",
+        "angular-spinner":"*"
     }
 }

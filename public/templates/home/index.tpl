@@ -1,42 +1,42 @@
 ﻿<h1 class="page-title" data-bind="html:displayName"> </h1>
 
 <div class="content-wrap">
-	<h3>Sample Home Page</h3>
+	<h3>{{loggedin.username| uppercase}}'s Home Page</h3>
 
-    <span data-bind="visible: isLoggedIn()">
+    <span ng-show="loggedin">
         <h4>Projects</h4>
 
         <table class="datatable projects">
             <thead>
                 <tr>
-                    <th class="center" width="75">Status</th>
-                    <th class="center" width="65">Build</th>
+                    <th class="center" width="100">Status</th>
+                    <th class="center" width="100">Build</th>
                     <th>Project</th>
-                    <th class="center" width="60">Branch</th>
-                    <th class="center" width="60">id</th>
+                    <th class="center" width="100">Branch</th>
+                    <th class="center" width="100">id</th>
                 </tr>
             </thead>
-            <tbody data-bind="foreach: projects">
-            <tr>
-                <td class="center status-col" data-bind="text: state"></td>
-                <td class="center run-col" data-bind="text: ended_at"></td>
-                <td></td>
-                <td class="center logs-col" data-bind="text: branch"></td>
-                <td class="center logs-col" data-bind="text: id"></td>
-            </tr>
+            <tbody>
+                <tr ng-repeat="project in projects">
+                    <td class="center status-col" >{{project.status}}</td>
+                    <td class="center run-col">{{project.build}}</td>
+                    <td class="center run-col">{{project.reponame}}</td>
+                    <td class="center logs-col">{{project.branch}}</td>
+                    <td class="center logs-col">{{project.commitid}}</td>
+                </tr>
             </tbody>
         </table>
  
     </span>
 
-    <span data-bind="visible: !isLoggedIn()">
-        <h4>You're Logged Out. Log in to see your projects.</h4>
+    <span ng-hide="loggedin">
+        <h4> You're Logged Out. Log in to see your projects.</h4>
         <p>Welcome, thanks for sponsors, login form</p>
     </span>
 
     <div class="sidebar">
       <div class="sidebar-list-contain">
-        <p>You need to be logged in to github in order to add a project.</p>
+        <p>{{loggedin.username| uppercase}} You need to be logged in to github in order to add a project.</p>
 
         <br>
 
@@ -46,33 +46,14 @@
 
           </form>
 
-          <h3 class="sidebar-list-title">Filter</h3>
+          <h3 class="sidebar-list-title">Filter <input ng-model="projectfilter"></h3>
       </div>
       <br>
       <div class="sidebar-list-contain">
         <h3 class="sidebar-list-title">Recent project builds</h3>
 
-        <ul class="sidebar-list">
-          <li><a href="#">
-            <strong>jQuery/jQuery</strong> - <time>Feb 11, 2014</time>
-            <span>Commit d792e40 by rwaldron</span>
-          </a></li>
-          <li><a href="#">
-            <strong>guardian/frontend</strong> - <time>Feb 10, 2014</time>
-            <span>Commit d792e40 by trevanhetzel</span>
-          </a></li>
-          <li><a href="#">
-            <strong>jQuery/jQuery</strong> - <time>Feb 11, 2014</time>
-            <span>Commit d792e40 by rwaldron</span>
-          </a></li>
-          <li><a href="#">
-            <strong>guardian/frontend</strong> - <time>Feb 10, 2014</time>
-            <span>Commit d792e40 by trevanhetzel</span>
-          </a></li>
-          <li><a href="#">
-            <strong>jQuery/jQuery</strong> - <time>Feb 11, 2014</time>
-            <span>Commit d792e40 by rwaldron</span>
-          </a></li>
+        <ul class="sidebar-list" ng-repeat="project in projects | filter:projectfilter">
+          <sidebarlist data="project"></sidebarlist>
         </ul>
 
         <div class="sidebar-list-actions">
