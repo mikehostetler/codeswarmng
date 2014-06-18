@@ -1,7 +1,7 @@
 <h1 class="page-title"> </h1>
 
 <div class="content-wrap">
-    <h3>Sample Home Page</h3>
+    <h3>Codeswarm Home Page</h3>
 
     <span ng-hide="{{ loggedin }}">
         <h4>Projects</h4>

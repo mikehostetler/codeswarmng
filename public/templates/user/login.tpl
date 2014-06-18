@@ -11,7 +11,6 @@
                 <li><a href="/auth/github">Log in with Github</a></li>
             </ul>
         </div>
-        <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="loginSpinner"></span>
         <div class="gf-col">
             <label>Username</label>
             <input type="username" placeholder="Username" name="username" id="username" ng-model="credentials.username" required>

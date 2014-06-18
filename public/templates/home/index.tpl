@@ -1,7 +1,7 @@
 ﻿<h1 class="page-title" data-bind="html:displayName"> </h1>
 
 <div class="content-wrap">
-	<h3>{{loggedin.username| uppercase}}'s Home Page</h3>
+	<h3>{{userdata.username| uppercase}}'s Home Page</h3>
 
     <span ng-show="loggedin">
         <h4>Projects</h4>
@@ -36,7 +36,7 @@
 
     <div class="sidebar">
       <div class="sidebar-list-contain">
-        <p>{{loggedin.username| uppercase}} You need to be logged in to github in order to add a project.</p>
+        <p>{{userdata.username| uppercase}} You need to be logged in to github in order to add a project.</p>
 
         <br>
 
