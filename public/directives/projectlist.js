@@ -13,10 +13,10 @@ codeswarm.directive('projectlist', function () {
                 '<td class="center logs-col">{{data.commitid}}</td>' +
                 '</tr>',
         link: function (scope, element, attrs) {
-            /*add linky stuff here*/
+
         },
         controller: function ($scope) {
-            /*add controller stuff here*/
+
         }
     };
 });

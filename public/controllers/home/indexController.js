@@ -2,6 +2,9 @@ function indexController($scope, $rootScope, codeswarmService, localStorageServi
     if(codeswarmService.isloggedin()){
         $scope.loggedin = true;
         $scope.userdata = localStorageService.get("userdata").user;
+        codeswarmService.tryGetAllProjects().then(function(data){
+            console.log("Project Data: ", data);
+        })
     }else{
         $scope.loggedin = false;
         $location.path("/user/login");

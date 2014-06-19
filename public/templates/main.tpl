@@ -29,7 +29,7 @@
  
     </span>
 
-    <span data-bind="visible: !isLoggedIn()">
+    <span ng-hide="{{ loggedin }}">
         <h4>You're Logged Out. Log in to see your projects.</h4>
         <p>Welcome, thanks for sponsors, login form</p>
     </span>
